@@ -1,0 +1,31 @@
+form {
+    display: grid;
+    width: 400px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+label:before {
+    content: url("https://cdn1.iconfinder.com/data/icons/windows8_icons_iconpharm/26/unchecked_checkbox.png");
+    position: absolute;
+    z-index: 100;
+  }
+  :checked+label:before {
+    content: url("https://cdn1.iconfinder.com/data/icons/windows8_icons_iconpharm/26/checked_checkbox.png");
+  }
+  input[type=checkbox] {
+    display: none;
+  }
+  /*pure cosmetics:*/
+  img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+  }
+  label {
+    margin: 10px;
+  }
+
+  button {
+      grid-column-start: 2;
+
+  }
