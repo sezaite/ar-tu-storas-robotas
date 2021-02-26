@@ -42,8 +42,8 @@ session_destroy();
 </head>
 <body>
 <div>
-<h1>Prašome pasirinkti tik skanius patiekalus:</h1> 
 <img src="./img/main.jpg" alt="riesutu sviestas">
+<h1>Prašome pasirinkti tik skanius patiekalus:</h1> 
 </div>
 <form action="" method = "post">
 <?php
