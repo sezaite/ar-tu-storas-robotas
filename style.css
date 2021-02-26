@@ -1,3 +1,7 @@
+body{
+  background-color: beige;
+}
+
 form {
     display: grid;
     width: 400px;
@@ -15,7 +19,7 @@ label:before {
   input[type=checkbox] {
     display: none;
   }
-  /*pure cosmetics:*/
+
   img {
     width: 100px;
     height: 100px;
@@ -29,3 +33,21 @@ label:before {
       grid-column-start: 2;
 
   }
+
+  div{
+    display: inline-block;
+    width: 100%;
+  }
+  
+  div img {
+    float: left;
+  }
+
+div h1 {
+    color: rebeccapurple;
+    font-size: 12px;
+    float: left;
+  }
+
+
+ 
