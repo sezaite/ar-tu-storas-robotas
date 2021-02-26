@@ -19,10 +19,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 }
 if(isset($_SESSION['sum'])){
     $_SESSION['visi'] = 'Tam storam robotui viskas skanu';
-    $_SESSION['netiesa'] = 'nezinau, nezinau, nepazistu taves. Bandyk dar karta, jei nori:';
+    $_SESSION['netiesa'] = 'Neatpažįstu tavęs. Bet bandyk kartą, jei nori:';
     $_SESSION['tiesa'] = 'Labas, Martyna';
-    $_SESSION['default'] = 'Pasirink tik skanius dalykėlius:';
-    if($_SESSION['sum'] === 22 && $_SESSION['boxuKiekis'] === 5){
+    $_SESSION['mazai'] = 'nu kas čia per išrankumas';
+    if($_SESSION['boxuKiekis'] > 0 && $_SESSION['boxuKiekis'] < 4){
+        $h1 = $_SESSION['mazai'];
+    } else if($_SESSION['sum'] === 22 && $_SESSION['boxuKiekis'] === 5){
         $h1 = $_SESSION['tiesa'];
     } else if ($_SESSION['sum'] === 45 && $_SESSION['boxuKiekis'] === 9){
         $h1 = $_SESSION['visi'];
@@ -46,8 +48,7 @@ session_destroy();
 </head>
 <body>
 <div>
-<img src="./img/main.jpg" alt="riesutu sviestas">
-<h1><?= $h1 ?? 'Pasirink tik skanius dalykėlius:' ?> </h1> 
+<h1><?= $h1 ?? 'Išrink visus skanius dalykėlius:' ?> </h1> 
 </div>
 <form action="" method = "post">
 <?php
@@ -57,7 +58,7 @@ $HTML .= "<input type='checkbox' name='boxes[]' value='$i' id='$i'/><label for='
 }
 echo $HTML;
 ?>
-<button type="submit">Pateikti</button>
+<button type="submit" class="btn">Pateikti</button>
 </form>
     
 </body>
