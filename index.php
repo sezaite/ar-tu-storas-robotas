@@ -18,14 +18,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     die;
 }
 if(isset($_SESSION['sum'])){
+    $_SESSION['visi'] = 'Tam storam robotui viskas skanu';
+    $_SESSION['netiesa'] = 'nezinau, nezinau, nepazistu taves. Bandyk dar karta, jei nori:';
+    $_SESSION['tiesa'] = 'Labas, Martyna';
+    $_SESSION['default'] = 'Pasirink tik skanius dalykėlius:';
     if($_SESSION['sum'] === 22 && $_SESSION['boxuKiekis'] === 5){
-        echo 'Labas, Martyna';
+        $h1 = $_SESSION['tiesa'];
     } else if ($_SESSION['sum'] === 45 && $_SESSION['boxuKiekis'] === 9){
-        echo 'Tam storam robotui viskas skanu';
+        $h1 = $_SESSION['visi'];
     } else {
-        echo 'nezinau, nezinau, nepazistu taves';
+        $h1 = $_SESSION['netiesa'];
     }
-}
+} 
 session_destroy();
 
     
@@ -43,7 +47,7 @@ session_destroy();
 <body>
 <div>
 <img src="./img/main.jpg" alt="riesutu sviestas">
-<h1>Prašome pasirinkti tik skanius patiekalus:</h1> 
+<h1><?= $h1 ?? 'Pasirink tik skanius dalykėlius:' ?> </h1> 
 </div>
 <form action="" method = "post">
 <?php
