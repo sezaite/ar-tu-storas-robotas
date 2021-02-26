@@ -2,15 +2,12 @@
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-    _d($_POST);
     if (isset($_POST['boxes'])){
         $boxuKiekis = count($_POST['boxes']);
         $sum = 0;
         for($i = 0; $i < $boxuKiekis; $i++){
             $sum += $_POST['boxes'][$i];  
         }    
-    }  else {
-        echo 'nieko nepasirinkai, seneliumbai';
     }
     $_SESSION['sum'] = $sum;
     $_SESSION['boxuKiekis'] = $boxuKiekis;
@@ -32,9 +29,7 @@ if(isset($_SESSION['sum'])){
         $h1 = $_SESSION['netiesa'];
     }
 } 
-session_destroy();
-
-    
+session_destroy();    
 ?>
 
 <!DOCTYPE html>
@@ -52,14 +47,13 @@ session_destroy();
 </div>
 <form action="" method = "post">
 <?php
-$HTML = "";
 for($i = 1; $i < 10; $i++){
-$HTML .= "<input type='checkbox' name='boxes[]' value='$i' id='$i'/><label for='$i'><img src='./img/$i.jpg'/></label>";
+$HTML[] = "<input type='checkbox' name='boxes[]' value='$i' id='$i'/><label for='$i'><img src='./img/$i.jpg'/></label>";
 }
-echo $HTML;
+shuffle($HTML);
+echo implode('', $HTML);
 ?>
 <button type="submit" class="btn">Pateikti</button>
-</form>
-    
+</form>  
 </body>
 </html>
